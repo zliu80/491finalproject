@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-function Users() {
-
-    return (
-        <h1>Users</h1>
-    );
+const Users = () => {
+    return(
+    <div class="dark:text-white">Users
+        <h1>ss</h1>
+    
+    </div>
+    )
 }
 
-export default Users;
+export default Users

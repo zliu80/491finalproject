@@ -1,19 +1,27 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Dashboard } from "./layouts/dashboard";
-import { Auth } from "./layouts/auth";
+import Layout from './components/Layout'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
+import Users from './pages/Users'
+import Attractions from './pages/Attractions'
+import Login from './pages/Login'
 
 function App() {
-
-  return (
-    <Routes>
-      <Route path="/dashboard/*" element={<Dashboard />} />
-      <Route path="/auth/*" element={<Auth />} />
-      <Route path="*" element={<Navigate to="/dashboard/home" replace />} />
-    </Routes>
-    
-
-  );
+    return (
+        <BrowserRouter>
+            <Layout>
+                <Routes>
+                    <Route path='/' element={<Login />} />
+                    <Route path='/dashboard' element={<Dashboard />} />
+                    <Route path='/users' element={<Users />} />
+                    <Route path='/attractions' element={<Attractions />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='*' element={<Home/>}/>
+                </Routes>
+            </Layout>
+        </BrowserRouter>
+    )
 }
 
-export default App;
+export default App
