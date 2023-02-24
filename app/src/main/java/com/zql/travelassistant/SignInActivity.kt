@@ -26,6 +26,7 @@ class SignInActivity : AppCompatActivity() {
 
     private lateinit var viewModel: UserViewModel
 
+    private val mContext = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class SignInActivity : AppCompatActivity() {
                    // Login failed
                    var ebody = response.errorBody()
                    Log.v("Error code 400",response.errorBody().toString());
+                   Toast.makeText(mContext, "Login failed",Toast.LENGTH_SHORT).show()
 
                } else if (response.code() == 200){
                    // Login succeed
@@ -70,13 +72,17 @@ class SignInActivity : AppCompatActivity() {
                    val intent = Intent(this@SignInActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-               }
+               } else {
+                    Toast.makeText(mContext, "Login failed",Toast.LENGTH_SHORT).show()
+                }
                 println(response.body())
 
             }
 
             override fun onFailure(call: Call<Auth>, t: Throwable) {
                 Log.e("Travel Assistant" , "Failed")
+                Toast.makeText(mContext, "Cannot connect to the server",Toast.LENGTH_SHORT).show()
+                binding.progressLogin.visibility=View.INVISIBLE
             }
 
         })

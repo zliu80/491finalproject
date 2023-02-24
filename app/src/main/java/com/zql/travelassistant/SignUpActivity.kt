@@ -3,7 +3,8 @@ package com.zql.travelassistant
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.zql.travelassistant.bean.UserRecord
+import android.widget.Toast
+import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.databinding.ActivitySignUpBinding
 import com.zql.travelassistant.http.RetrofitClient
 import com.zql.travelassistant.http.model.SignUpData
@@ -14,6 +15,9 @@ import retrofit2.Response
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
+
+    private val mContext = this
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +45,8 @@ class SignUpActivity : AppCompatActivity() {
         val api = RetrofitClient.api
 
         val dataModel = SignUpData(username, email, true, password, password, false, "", 0)
-        api.SignUp(dataModel).enqueue(object: Callback<UserRecord> {
-            override fun onResponse(call: Call<UserRecord>, response: Response<UserRecord>) {
+        api.SignUp(dataModel).enqueue(object: Callback<User> {
+            override fun onResponse(call: Call<User>, response: Response<User>) {
                 if(response.code() == 400)
                 {
                     // Login failed
@@ -55,8 +59,10 @@ class SignUpActivity : AppCompatActivity() {
                 println(response.body())
             }
 
-            override fun onFailure(call: Call<UserRecord>, t: Throwable) {
+            override fun onFailure(call: Call<User>, t: Throwable) {
                 Log.e("Travel Assistant SignUp" , "Failed")
+                Toast.makeText(mContext, "Cannot connect to the server", Toast.LENGTH_SHORT).show()
+
             }
 
         })

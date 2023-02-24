@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.zql.travelassistant.R
 import com.zql.travelassistant.UserViewModel
-import com.zql.travelassistant.bean.UserRecord
+import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -29,8 +28,8 @@ class SettingsFragment : Fragment() {
     ): View? {
         binding = FragmentSettingsBinding.inflate(layoutInflater)
 
-        val userRecord: UserRecord? = userViewModel.getUser()
-        println(userRecord?.avatar)
+        val user: User? = userViewModel.getUser()
+        println(user?.avatar)
         return binding.root
     }
 

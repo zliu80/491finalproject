@@ -2,18 +2,18 @@ package com.zql.travelassistant
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.zql.travelassistant.bean.UserRecord
+import com.zql.travelassistant.bean.User
 
 class UserViewModel: ViewModel() {
 
-    var userMutableLiveData:MutableLiveData<UserRecord> = MutableLiveData()
+    var userMutableLiveData:MutableLiveData<User> = MutableLiveData()
 
 
-    fun setUser(userRecord: UserRecord){
-        userMutableLiveData.postValue(userRecord)
+    fun setUser(user: User){
+        userMutableLiveData.postValue(user)
     }
 
-    fun getUser(): UserRecord? {
+    fun getUser(): User? {
         return userMutableLiveData.value
     }
 }
