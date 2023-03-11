@@ -1,4 +1,7 @@
-package com.zql.travelassistant.bean
+package com.zql.travelassistant.http.model
+
+import android.text.Editable
+import java.io.File
 
 
 /**
@@ -17,18 +20,21 @@ package com.zql.travelassistant.bean
             "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xsZWN0aW9uSWQiOiJfcGJfdXNlcnNfYXV0aF8iLCJleHAiOjE2Nzg0MDc3NjEsImlkIjoiNGJ2MWdmbHhxaGNodXU4IiwidHlwZSI6ImF1dGhSZWNvcmQifQ.PBGQ9W4yth02bAyWsYedwpGUguVSrRS7l9kVvVo3y-E"}
 }
  */
-data class User (
-      var id: String,
-      var collectionId: String,
-      var collectionName: String,
-      var created: String,
-      var updated: String,
-      var username: String,
-      var verified: Boolean = false,
-      var emailVisibility: Boolean = false,
-      var email: String,
-      var nickname: String,
-      var avatar: String,     // url
-      var age: Int = 0,
-      var phoneNumber:String
+data class UpdateUserData(
+//      var id: String,
+//      var username: String,
+//      var verified: Boolean = false,
+//      var emailVisibility: Boolean = false,
+    var email: String,
+//      var oldPassword:String,
+//      var password:String,
+//      var passwordConfirm:String,
+
+    var nickname: String,
+    var age: Int = 0,
+    var phoneNumber:String
+)
+
+data class UpdateUserAvatar (
+    var avatar: File,     // url
 )

@@ -41,20 +41,26 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Call the backend restful api through the Retrofit interface
+     * Sign up input: username, password, email
+     */
     private fun signUp(username:String, password:String, email:String){
-        val api = RetrofitClient.api
-
+        // Entity set up
         val dataModel = SignUpData(username, email, true, password, password, false, "", 0)
-        api.SignUp(dataModel).enqueue(object: Callback<User> {
+        // Make a call to request the back-end server
+        RetrofitClient.api.signUp(dataModel).enqueue(object: Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                if(response.code() == 400)
+                if(response.code() == 200)
                 {
-                    // Login failed
+                    // Sign up succeed
+                    Toast.makeText(mContext, "Sign up success, you may log in", Toast.LENGTH_SHORT).show()
+                    // Kill this activity
+                    finish()
+                } else if (response.code() == 400){
+                    // Sign up failed
                     var ebody = response.errorBody()
-                    Log.v("Error code 400",response.errorBody().toString());
-
-                } else if (response.code() == 200){
-                    // Login succeed
+                    Log.e("Error code 400",response.errorBody().toString());
                 }
                 println(response.body())
             }
@@ -62,7 +68,6 @@ class SignUpActivity : AppCompatActivity() {
             override fun onFailure(call: Call<User>, t: Throwable) {
                 Log.e("Travel Assistant SignUp" , "Failed")
                 Toast.makeText(mContext, "Cannot connect to the server", Toast.LENGTH_SHORT).show()
-
             }
 
         })

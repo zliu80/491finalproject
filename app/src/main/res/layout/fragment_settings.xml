@@ -1,24 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.SettingsFragment">
 
-    <io.getstream.avatarview.AvatarView
-        android:id="@+id/avatar_view"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        app:avatarViewBorderColor="@color/gray"
-        app:avatarViewBorderWidth="3dp"
-        app:avatarViewIndicatorBorderColor="@color/white"
-        app:avatarViewIndicatorBorderSizeCriteria="10"
-        app:avatarViewIndicatorColor="@color/teal_200"
-        app:avatarViewIndicatorEnabled="true"
-        app:avatarViewIndicatorPosition="bottomRight"
-        app:avatarViewIndicatorSizeCriteria="9"
-        app:avatarViewInitialsTextStyle="bold"
-        app:avatarViewShape="circle" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:background="#2196F3
+"
+        android:orientation="vertical"
+        android:layout_height="0dp" android:layout_weight="0.3">
+
+        <io.getstream.avatarview.AvatarView
+            android:id="@+id/avatar_view"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            app:avatarViewBorderColor="@android:color/holo_blue_bright"
+            app:avatarViewBorderWidth="3dp"
+            app:avatarViewIndicatorSizeCriteria="9"
+            app:avatarViewInitialsTextStyle="bold"
+            app:avatarViewShape="circle" />
+
+
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username"
+            />
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp" android:layout_weight="0.7">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/settings_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -51,6 +51,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.8"
                     android:layout_height="wrap_content"
+                    app:passwordToggleEnabled="true"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:hint="@string/hint_signup_username">
 

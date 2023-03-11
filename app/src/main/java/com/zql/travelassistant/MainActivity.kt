@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -21,29 +20,22 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
-
         initView()
     }
 
     private fun loadFragment(fragment: Fragment){
-
-
         val transaction = supportFragmentManager.beginTransaction()
-//            .setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
-
         transaction.replace(R.id.container, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
 
     private fun initView(){
-
         binding.bottomNavigationView.setOnItemSelectedListener{
             when (it.itemId){
                 R.id.home ->{
                     setTitle(R.string.home)
                     loadFragment(HomeFragment())
-
                     return@setOnItemSelectedListener true
                 }
                 R.id.favorite ->{
@@ -56,9 +48,7 @@ class MainActivity : AppCompatActivity() {
                     setTitle(R.string.setting)
                     loadFragment(SettingsFragment())
                     return@setOnItemSelectedListener true
-
                 }
-
             }
             false
 
