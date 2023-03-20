@@ -18,6 +18,7 @@ import com.zql.travelassistant.ProfileActivity
 import com.zql.travelassistant.R
 import com.zql.travelassistant.TSApplication
 import com.zql.travelassistant.UserViewModel
+import com.zql.travelassistant.adapter.SettingsRecyclearViewAdapter
 import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.databinding.FragmentSettingsBinding
 import io.getstream.avatarview.coil.loadImage
@@ -76,26 +77,5 @@ class SettingsFragment : Fragment() {
 
     }
 
-    inner class SettingsRecyclearViewAdapter(val context: Context?, var data:MutableList<String>):RecyclerView.Adapter<SettingsRecyclearViewAdapter.ViewHolder>(){
 
-        inner class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
-            val tv_recycler_view_item:TextView = view.findViewById(R.id.tv_recycler_view_item)
-//
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SettingsRecyclearViewAdapter.ViewHolder {
-            val view  = LayoutInflater.from(context).inflate(R.layout.item_settings_recyclerview, parent, false)
-            return ViewHolder(view)
-        }
-
-
-        override fun getItemCount(): Int {
-            return data.size
-        }
-
-        override fun onBindViewHolder(vh: ViewHolder, position: Int) {
-            vh.tv_recycler_view_item.setText(data.get(position))
-        }
-
-    }
 }

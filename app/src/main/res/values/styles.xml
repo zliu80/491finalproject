@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="SignUpTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/teal_200</item>
+        <item name="android:textSize">30sp</item>
+
+    </style>
+
+    <style name="TitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/activity_title_text_size</item>
+
+    </style>
+
+    <style name="NormalText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/activity_text_size</item>
+
+    </style>
+
+    <style name="GrayText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:textSize">@dimen/activity_text_size</item>
+
+    </style>
 </resources>

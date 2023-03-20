@@ -2,6 +2,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.zql.travelassistant"
-        minSdk 24
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -67,6 +68,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.8'
     // Image Selector
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+    // Google map SDK
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    // Ads banner
+    implementation 'io.github.youth5201314:banner:2.2.2'
 
 
     testImplementation 'junit:junit:4.13.2'

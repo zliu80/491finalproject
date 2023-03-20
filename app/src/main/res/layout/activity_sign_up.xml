@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/signup_text"
-        android:textSize="30sp"
-        android:textColor="@color/teal_200"
+        style="@style/SignUpTitle"
         android:gravity="center_horizontal"
         />
 
@@ -44,6 +43,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="0.2"
                         android:text="Username: "
+                        style="@style/GrayText"
                         android:layout_height="wrap_content"/>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +51,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="0.8"
                     android:layout_height="wrap_content"
-                    app:passwordToggleEnabled="true"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:hint="@string/hint_signup_username">
 
@@ -71,6 +70,8 @@
                         android:layout_width="0dp"
                         android:layout_weight="0.2"
                         android:text="Password: "
+                        style="@style/GrayText"
+
                         android:layout_height="wrap_content"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_password"
@@ -78,6 +79,8 @@
                     android:layout_weight="0.8"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    app:passwordToggleEnabled="true"
+
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:hint="@string/hint_signup_password">
 
@@ -96,8 +99,39 @@
 
                     <TextView
                         android:layout_width="0dp"
+                        android:layout_weight="0.2"
+                        android:text="Confirm password: "
+                        style="@style/GrayText"
+                        android:layout_height="wrap_content"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_password_confirm"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:passwordToggleEnabled="true"
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:hint="@string/hint_signup_password">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
                         android:text="Email: "
                         android:layout_weight="0.2"
+                        style="@style/GrayText"
                         android:layout_height="wrap_content"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/text_email"

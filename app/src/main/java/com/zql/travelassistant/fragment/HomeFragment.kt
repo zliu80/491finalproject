@@ -1,27 +1,37 @@
 package com.zql.travelassistant.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
+import com.zql.travelassistant.CityDetailActivity
 import com.zql.travelassistant.R
 import com.zql.travelassistant.TSApplication
+import com.zql.travelassistant.adapter.HomeRecyclearViewAdapter
 import com.zql.travelassistant.bean.Auth
 import com.zql.travelassistant.bean.City
 import com.zql.travelassistant.bean.CityList
 import com.zql.travelassistant.databinding.FragmentHomeBinding
 import com.zql.travelassistant.databinding.FragmentSettingsBinding
 import com.zql.travelassistant.http.RetrofitClient
+import com.zql.travelassistant.http.model.UserBadResponse
+import com.zql.travelassistant.http.util.BadResponseHandler
+import com.zql.travelassistant.interfaces.OnItemClickListener
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +60,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViews() {
-
     }
 
 
@@ -59,7 +68,7 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
-    fun cityList(){
+    private fun cityList(){
         RetrofitClient.api.cities().enqueue(object: Callback<CityList> {
             override fun onResponse(call: Call<CityList>, response: Response<CityList>) {
                 if(response.code() == 200){
@@ -77,47 +86,40 @@ class HomeFragment : Fragment() {
                             layoutManager = LinearLayoutManager(context)
                         }
                         binding.homeRecyclerview.layoutManager = layoutManager
-                        binding.homeRecyclerview.adapter = HomeRecyclearViewAdapter(context, cityList.items)
+                        val adapter = HomeRecyclearViewAdapter(context, cityList.items)
+                        adapter.setOnItemClickListener(recyclerViewItemClickListener)
+                        binding.homeRecyclerview.adapter = adapter
+
                     }
                 } else {
-
+                    // Handle 400, 403, 404 fail
+                    // Sign up failed
+                    BadResponseHandler.handleErrorResponse(context, response, "Fetching the city list failed!")
                 }
             }
 
             override fun onFailure(call: Call<CityList>, t: Throwable) {
+                BadResponseHandler.handleFailtureResponse(context)
             }
 
         })
     }
 
+    val recyclerViewItemClickListener= object : OnItemClickListener {
+        override fun onItemClick(position: Int) {
 
-    inner class HomeRecyclearViewAdapter(val context: Context?, var data:MutableList<City>):
-        RecyclerView.Adapter<HomeRecyclearViewAdapter.ViewHolder>(){
+            val adapter=binding.homeRecyclerview.adapter as HomeRecyclearViewAdapter
 
-        inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-            val cityImage: ImageView = view.findViewById(R.id.img_recycler_view_item)
-            val cityTitle: TextView = view.findViewById(R.id.title)
+            val item = adapter.data[position]
+
+            val intent = Intent(context, CityDetailActivity::class.java)
+            intent.putExtra("city_detail", Gson().toJson(item))
+            startActivity(intent)
         }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRecyclearViewAdapter.ViewHolder {
-            val view  = LayoutInflater.from(context).inflate(R.layout.item_home_recyclerview, parent, false)
-            return ViewHolder(view)
-        }
-
-
-        override fun getItemCount(): Int {
-            return data.size
-        }
-
-        override fun onBindViewHolder(vh: ViewHolder, position: Int) {
-            var abosoluteCityImageUrl = TSApplication.CITY_FILE_PATH + data.get(position).collectionId + "/"
-            abosoluteCityImageUrl += data.get(position).id +"/" + data.get(position).city_image
-            println(abosoluteCityImageUrl)
-
-            Picasso.get().load(abosoluteCityImageUrl).into(vh.cityImage)
-
-            vh.cityTitle.setText(data.get(position).name)
-        }
-
     }
+
+
+
+
+
 }

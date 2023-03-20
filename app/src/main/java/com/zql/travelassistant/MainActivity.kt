@@ -34,18 +34,15 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener{
             when (it.itemId){
                 R.id.home ->{
-                    setTitle(R.string.home)
                     loadFragment(HomeFragment())
                     return@setOnItemSelectedListener true
                 }
                 R.id.favorite ->{
-                    setTitle(R.string.plans)
                     loadFragment(PlansFragment())
                     return@setOnItemSelectedListener true
                 }
 
                 R.id.currency ->{
-                    setTitle(R.string.setting)
                     loadFragment(SettingsFragment())
                     return@setOnItemSelectedListener true
                 }

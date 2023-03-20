@@ -4,7 +4,10 @@
     <string name="hint_username">Please enter your username</string>
     <string name="hint_password">Please enter your password</string>
     <string name="hint_no_account">Don\'t have an account? Sign up now!</string>
-    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="title_activity_sign_in">Sign In</string>
+    <string name="title_activity_profile">Profile</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -47,4 +50,14 @@
     <string name="text_age">Age</string>
     <string name="text_phone_number">Contact Number</string>
     <string name="text_update_profile">Update Profile</string>
+    <string name="text_most_popular_cities">Most Popular Cities</string>
+    <string name="text_rememberme">Remember me</string>
+    <string name="text_most_popular_attractions">Most popular attractions</string>
+    <string name="text_address">Address: </string>
+    <string name="text_rating">Rating: </string>
+    <string name="text_openning_hours">Openning Hours</string>
+    <string name="text_contact_number">"Contact Number: "</string>
+    <string name="text_reviews">Most relevant reviews</string>
+    <string name="text_order">Order</string>
+    <string name="text_locate">Locate</string>
 </resources>

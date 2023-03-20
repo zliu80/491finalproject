@@ -23,7 +23,7 @@ import java.io.File
 data class UpdateUserData(
 //      var id: String,
 //      var username: String,
-//      var verified: Boolean = false,
+//      var verified: Boolean = true,
 //      var emailVisibility: Boolean = false,
     var email: String,
 //      var oldPassword:String,

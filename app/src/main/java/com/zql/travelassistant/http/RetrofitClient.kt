@@ -24,4 +24,11 @@ object RetrofitClient {
 
     // Travel Assistant service created by retrofit client
     val api = retrofit.create(TravelAssistantService::class.java)
+
+
+    // Retrofit client with OKhttp
+//    val retrofitWeather = Retrofit.Builder().baseUrl(TSApplication.TRAVEL_ASSISTANT_URL).addConverterFactory(
+//        GsonConverterFactory.create()).client(
+//        okHttpClient).build()
+//    val weatherApi = retrofit.create(WeatherService::class.java)
 }
