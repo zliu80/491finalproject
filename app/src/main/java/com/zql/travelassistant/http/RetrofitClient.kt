@@ -1,6 +1,7 @@
 package com.zql.travelassistant.http
 
 import com.zql.travelassistant.TSApplication
+import com.zql.travelassistant.interfaces.TravelAssistantService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

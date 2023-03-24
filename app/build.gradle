@@ -73,6 +73,15 @@ dependencies {
     // Ads banner
     implementation 'io.github.youth5201314:banner:2.2.2'
 
+    // Material Dialog Library
+    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.3'
+    // Lottie Animation Library
+    implementation 'com.airbnb.android:lottie:3.3.6'
+
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:2.0.0'
+
+    implementation 'com.ms-square:expandableTextView:0.1.4'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

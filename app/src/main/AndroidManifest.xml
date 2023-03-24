@@ -29,7 +29,8 @@
         <activity
             android:name=".CityDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.TravelAssistant.NoActionBar" />
+             />
+<!--        android:theme="@style/Theme.TravelAssistant.NoActionBar"-->
         <activity
             android:name=".ProfileActivity"
             android:exported="false"

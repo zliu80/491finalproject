@@ -21,9 +21,10 @@ import com.zql.travelassistant.UserViewModel
 import com.zql.travelassistant.adapter.SettingsRecyclearViewAdapter
 import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.databinding.FragmentSettingsBinding
+import com.zql.travelassistant.view.RecyclerViewOrientationManager
 import io.getstream.avatarview.coil.loadImage
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = SettingsFragment()
@@ -58,15 +59,8 @@ class SettingsFragment : Fragment() {
             startActivity(Intent(context, ProfileActivity::class.java))
         }
 
-        var layoutManager:RecyclerView.LayoutManager?= null
-        // Dynamically choose layout based on the orientation of device
-        if(resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
-            layoutManager = GridLayoutManager(context,3)
-            layoutManager.orientation = LinearLayoutManager.VERTICAL
-        } else  if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
-            layoutManager = LinearLayoutManager(context)
-        }
-        binding.settingsRecyclerview.layoutManager = layoutManager
+        binding.settingsRecyclerview.layoutManager = RecyclerViewOrientationManager.getLayoutManager(resources, requireContext())
+
         binding.settingsRecyclerview.adapter = SettingsRecyclearViewAdapter(context, mutableListOf("Theme","Language"))
 
     }

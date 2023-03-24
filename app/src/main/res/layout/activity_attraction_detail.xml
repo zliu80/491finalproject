@@ -49,22 +49,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/activity_horizontal_small_margin"
+                    android:paddingLeft="@dimen/activity_horizontal_small_margin"
+                    android:paddingRight="@dimen/activity_horizontal_small_margin">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/baseline_location_on_24" />
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        style="@style/NormalText"
-                        android:text="@string/text_address"
-                        />
-                    <TextView
                         android:id="@+id/text_address"
-                        android:layout_width="wrap_content"
+                        style="@style/SubTitleText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/NormalText"
-                        android:text="111111"
+                        android:layout_marginLeft="@dimen/activity_horizontal_small_margin"
                         android:autoLink="map"
-                        />
+                        android:text="@string/text_none" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -77,7 +79,7 @@
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
                         style="@style/NormalText"
-                        android:text="@string/text_address"
+
                         />
 
                     <TextView
@@ -94,31 +96,69 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
+                    android:layout_marginTop="@dimen/activity_horizontal_small_margin"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/activity_horizontal_small_margin"
+                    android:paddingRight="@dimen/activity_horizontal_small_margin">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_contact_number"
-                        style="@style/NormalText"
-                        />
+                        android:background="@drawable/baseline_local_phone_24" />
 
                     <TextView
-                        android:id="@+id/text_contact_number"
-                        style="@style/NormalText"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/text_phone_number"
+                        style="@style/SubTitleText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_small_margin"
                         android:autoLink="phone"
-                        android:layout_height="wrap_content"/>
+                        android:text="@string/text_none" />
                 </LinearLayout>
 
-                    <Button
-                        android:id="@+id/btn_openning_hours"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/activity_horizontal_small_margin"
+                    android:paddingRight="@dimen/activity_horizontal_small_margin">
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_openning_hours"
-                        />
+                        android:background="@drawable/baseline_access_time_24" />
+
+                    <com.ms.square.android.expandabletextview.ExpandableTextView xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/expand_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_small_margin"
+                        expandableTextView:animDuration="200"
+                        expandableTextView:maxCollapsedLines="1">
+
+
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="show more"
+                            android:textColor="#666666"
+                            android:textSize="16sp" />
+
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"
+                            android:padding="16dp" />
+
+                    </com.ms.square.android.expandabletextview.ExpandableTextView>
+                </LinearLayout>
 
             </LinearLayout>
             <com.google.android.material.divider.MaterialDivider
@@ -193,9 +233,18 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/text_reviews"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    style="@style/GrayText"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:text="@string/text_reviews"
+                    />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="@dimen/activity_horizontal_small_margin"
                     />
 
                 <RelativeLayout

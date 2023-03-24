@@ -76,15 +76,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/progress_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:indeterminate="true"
-        android:visibility="invisible" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
@@ -115,7 +106,5 @@
             style="?attr/materialButtonOutlinedStyle"
             />
     </LinearLayout>
-
-
 
 </LinearLayout>

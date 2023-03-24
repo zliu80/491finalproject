@@ -2,6 +2,7 @@ package com.zql.travelassistant
 
 import android.app.Application
 import android.content.pm.PackageManager
+import androidx.appcompat.widget.ThemeUtils
 import androidx.lifecycle.MutableLiveData
 import com.zql.travelassistant.bean.Attraction
 import com.zql.travelassistant.bean.City
@@ -44,6 +45,5 @@ class TSApplication :Application() {
         super.onCreate()
         var appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA   )
         GOOGLE_MAPS_API_KEY = appInfo.metaData.getString("com.google.android.geo.API_KEY")!!
-
     }
 }

@@ -1,26 +1,24 @@
 package com.zql.travelassistant
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.zql.travelassistant.databinding.ActivityMainBinding
 import com.zql.travelassistant.fragment.HomeFragment
 import com.zql.travelassistant.fragment.PlansFragment
 import com.zql.travelassistant.fragment.SettingsFragment
+import com.zql.travelassistant.util.ErrorHandler
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivityWithNoTitle() {
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         if(savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
-        initView()
     }
 
     private fun loadFragment(fragment: Fragment){
@@ -30,7 +28,10 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    private fun initView(){
+    override fun init(){
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.bottomNavigationView.setOnItemSelectedListener{
             when (it.itemId){
                 R.id.home ->{

@@ -1,40 +1,32 @@
 package com.zql.travelassistant
 
-import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import com.youth.banner.adapter.BannerAdapter
 import com.youth.banner.indicator.CircleIndicator
 import com.zql.travelassistant.adapter.AttractionListRecyclearViewAdapter
 import com.zql.travelassistant.adapter.CityDetailBannerImageAdapter
 import com.zql.travelassistant.bean.*
 import com.zql.travelassistant.databinding.ActivityCityDetailBinding
 import com.zql.travelassistant.http.RetrofitClient
-import com.zql.travelassistant.http.util.BadResponseHandler
+import com.zql.travelassistant.util.BadResponseHandler
 import com.zql.travelassistant.interfaces.OnItemClickListener
+import com.zql.travelassistant.util.ErrorHandler
+import com.zql.travelassistant.view.RecyclerViewOrientationManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
-class CityDetailActivity : AppCompatActivity() {
+class CityDetailActivity : BaseActivityWithTitle() {
 
     private lateinit var binding: ActivityCityDetailBinding
-
-    private val mContext = this
 
     private lateinit var city: City
 
@@ -43,24 +35,31 @@ class CityDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityCityDetailBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
 
-        initViews()
 
-        loadWeather()
-
-        loadAttractionList()
     }
 
     /**
      * Init views
      */
-    fun initViews() {
+    override fun init() {
+        binding = ActivityCityDetailBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
+
+        supportActionBar?.setTitle(R.string.text_city_detail_activity_title)
+
         city = Gson().fromJson(intent.getStringExtra("city_detail"), City::class.java)
         binding.textCityName.setText(city.name)
         binding.textCityDetail.setText(city.description)
+
+        loadWeather()
+
+        loadAttractionList()
+
+
+
     }
 
     /**
@@ -97,7 +96,7 @@ class CityDetailActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Weather>, t: Throwable) {
-                    println("")
+                    BadResponseHandler.handleFailtureResponse(mContext, t.message!!)
                 }
             })
     }
@@ -106,6 +105,7 @@ class CityDetailActivity : AppCompatActivity() {
      * Load Attraction List
      */
     fun loadAttractionList() {
+        showLoading()
         // search filter
         var filter = "(city_id='${city.id}')"
         RetrofitClient.api.attractionList(filter).enqueue(object : Callback<AttractionList> {
@@ -113,6 +113,7 @@ class CityDetailActivity : AppCompatActivity() {
                 call: Call<AttractionList>,
                 response: Response<AttractionList>
             ) {
+                closeLoading()
                 if (response.code() == 200) {
                     var list = response.body()!!.items
                     updateAttractionList(list)
@@ -121,17 +122,14 @@ class CityDetailActivity : AppCompatActivity() {
                 } else {
                     // Handle 400, 403, 404 fail
                     // Sign up failed
-                    BadResponseHandler.handleErrorResponse(
-                        mContext,
-                        response,
-                        "Cannot load the weather."
-                    )
+                    BadResponseHandler.handleErrorResponse(mContext, response, "Cannot load the weather.")
                 }
                 println(response.body())
             }
 
             override fun onFailure(call: Call<AttractionList>, t: Throwable) {
-
+                closeLoading()
+                BadResponseHandler.handleFailtureResponse(mContext)
             }
 
         })
@@ -151,15 +149,9 @@ class CityDetailActivity : AppCompatActivity() {
      * Update Attraction List
      */
     fun updateAttractionList(list: MutableList<Attraction>) {
-        var layoutManager: RecyclerView.LayoutManager? = null
-        // Dynamically choose layout based on the orientation of device
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            layoutManager = GridLayoutManager(mContext, 3)
-            layoutManager.orientation = LinearLayoutManager.VERTICAL
-        } else if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            layoutManager = LinearLayoutManager(mContext)
-        }
-        binding.recyclerView.layoutManager = layoutManager
+
+        binding.recyclerView.layoutManager = RecyclerViewOrientationManager.getLayoutManager(resources, mContext)
+
         val adapter = AttractionListRecyclearViewAdapter(mContext, list)
         adapter.setOnItemClickListener(attactionListItemClickListener)
         binding.recyclerView.adapter = adapter

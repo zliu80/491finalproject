@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">TravelAssistant</string>
+
+    <string name="text_city_detail_activity_title">City List</string>
+    <string name="text_attraction_detail_activity_title">Attraction List</string>
+
     <string name="login_text">Log in</string>
     <string name="hint_username">Please enter your username</string>
     <string name="hint_password">Please enter your password</string>
@@ -57,7 +61,11 @@
     <string name="text_rating">Rating: </string>
     <string name="text_openning_hours">Openning Hours</string>
     <string name="text_contact_number">"Contact Number: "</string>
-    <string name="text_reviews">Most relevant reviews</string>
-    <string name="text_order">Order</string>
+    <string name="text_reviews">Top 5 Reviews from other travellers</string>
+    <string name="text_detail">Details</string>
     <string name="text_locate">Locate</string>
+    <string name="text_loading">Loading...</string>
+    <string name="text_order">Order</string>
+    <string name="text_none">None</string>
+
 </resources>

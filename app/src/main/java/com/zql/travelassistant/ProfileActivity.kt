@@ -3,21 +3,19 @@ package com.zql.travelassistant
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Toast
 import com.github.dhaval2404.imagepicker.ImagePicker
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.databinding.ActivityProfileBinding
 import com.zql.travelassistant.http.RetrofitClient
 import com.zql.travelassistant.http.model.UpdateUserAvatar
 import com.zql.travelassistant.http.model.UpdateUserData
-import com.zql.travelassistant.http.model.UserBadResponse
-import com.zql.travelassistant.http.util.BadResponseHandler
+import com.zql.travelassistant.util.BadResponseHandler
+import com.zql.travelassistant.util.ErrorHandler
+import com.zql.travelassistant.util.MaterialDialog
 import io.getstream.avatarview.coil.loadImage
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -26,24 +24,21 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class ProfileActivity : AppCompatActivity() {
+class ProfileActivity : BaseActivityWithTitle() {
 
     private lateinit var binding: ActivityProfileBinding
-
-    private val mContext = this
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityProfileBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        initViews()
     }
 
     /**
      * Init all views
      */
-    private fun initViews() {
+    override fun init() {
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         // Set back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // Get user entity from Application
@@ -60,7 +55,15 @@ class ProfileActivity : AppCompatActivity() {
         }
         // Update profile button click event
         binding.btnUpdateProfile.setOnClickListener {
-            updateProcfile(TSApplication.userRecord.id, UpdateUserData(binding.textEmail.text.toString(), binding.textNickname.text.toString(), binding.textAge.text.toString().toInt(), binding.textPhoneNumber.text.toString()))
+            updateProcfile(
+                TSApplication.userRecord.id,
+                UpdateUserData(
+                    binding.textEmail.text.toString(),
+                    binding.textNickname.text.toString(),
+                    binding.textAge.text.toString().toInt(),
+                    binding.textPhoneNumber.text.toString()
+                )
+            )
         }
     }
 
@@ -68,7 +71,7 @@ class ProfileActivity : AppCompatActivity() {
      * Click the back button will end this Activity
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId == android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             finish()
 
         }
@@ -95,8 +98,8 @@ class ProfileActivity : AppCompatActivity() {
             // Use Uri object instead of File to avoid storage permissions
             println(uri)
 
-            var data:UpdateUserAvatar = UpdateUserAvatar(File(uri.path))
-            updateProcfile(TSApplication.userRecord.id,data)
+            var data: UpdateUserAvatar = UpdateUserAvatar(File(uri.path))
+            updateProcfile(TSApplication.userRecord.id, data)
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {
@@ -107,24 +110,35 @@ class ProfileActivity : AppCompatActivity() {
     /**
      * Update Procfile
      */
-    private fun updateProcfile(id:String, data:UpdateUserData){
+    private fun updateProcfile(id: String, data: UpdateUserData) {
+        showLoading()
         RetrofitClient.api.updateUserProfile(id, data).enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                if (response.code() == 200 ) {
+                closeLoading()
+                if (response.code() == 200) {
                     TSApplication.userRecord = response.body()!!
 //                    binding.avatarView.loadImage(data=TSApplication.getAvatarHttpAddress())
                     Log.d("Update profile success", response.body().toString());
+                    MaterialDialog.show(
+                        this@ProfileActivity,
+                        "Your profile has been updated.",
+                        "Success"
+                    )
                 } else {
                     // Handle 400, 403, 404 fail
                     // Sign up failed
-                    BadResponseHandler.handleErrorResponse(mContext, response, "Update profile failed!")
+                    BadResponseHandler.handleErrorResponse(
+                        mContext,
+                        response,
+                        "Update profile failed!"
+                    )
                 }
                 println(response.body())
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
+                closeLoading()
                 BadResponseHandler.handleFailtureResponse(mContext)
-
             }
 
         })
@@ -133,24 +147,34 @@ class ProfileActivity : AppCompatActivity() {
     /**
      * Update User avatar
      */
-    private fun updateProcfile(id:String,data:UpdateUserAvatar){
-        var part:MultipartBody.Part = MultipartBody.Part.createFormData("avatar",data.avatar.name, data.avatar.asRequestBody())
-
+    private fun updateProcfile(id: String, data: UpdateUserAvatar) {
+        var part: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "avatar",
+            data.avatar.name,
+            data.avatar.asRequestBody()
+        )
+        showLoading()
         RetrofitClient.api.updateUserAvatar(id, part).enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
-                if (response.code() == 200 ) {
+                closeLoading()
+                if (response.code() == 200) {
                     TSApplication.userRecord = response.body()!!
-                    binding.avatarView.loadImage(data=TSApplication.getAvatarHttpAddress())
+                    binding.avatarView.loadImage(data = TSApplication.getAvatarHttpAddress())
                     Log.d("Update avatar success", response.body().toString());
                 } else {
                     // Handle 400, 403, 404 fail
                     // Sign up failed
-                    BadResponseHandler.handleErrorResponse(mContext, response, "Update avatar failed!")
+                    BadResponseHandler.handleErrorResponse(
+                        mContext,
+                        response,
+                        "Update avatar failed!"
+                    )
                 }
                 println(response.body())
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
+                closeLoading()
                 BadResponseHandler.handleFailtureResponse(mContext)
 
             }

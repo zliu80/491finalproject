@@ -33,16 +33,30 @@ package com.zql.travelassistant.bean
 "status": "OK",
 }
  */
-data class Place (
-      var id: String,
-      var results:List<Results>,
-      var status:String,
+data class Place(
+    var id: String,
+    var results: List<Results>,
+    var status: String,
 )
+
 data class OpenningHours(var open_now: Boolean)
 
-data class Results(var formatted_address:String, var geometry: Geometry, var icon:String, var icon_background_color:String, var icon_mask_base_uri:String, var name:String, var place_id:String, var reference:String,var types:List<String>,var opening_hours:OpenningHours)
+data class Results(
+    var formatted_address: String,
+    var geometry: Geometry,
+    var icon: String,
+    var icon_background_color: String,
+    var icon_mask_base_uri: String,
+    var name: String,
+    var place_id: String,
+    var reference: String,
+    var types: List<String>,
+    var opening_hours: OpenningHours,
+    var rating:Float
+)
+
 data class Geometry(var location: Locations, var viewport: Viewport)
-data class Locations(var lat:Double, var lng:Double)
+data class Locations(var lat: Double, var lng: Double)
 data class Viewport(var northeast: Northeast, var southwest: Southwest)
-data class Northeast(var lat:Double,var lng: Double)
-data class Southwest(var lat:Double,var lng: Double)
+data class Northeast(var lat: Double, var lng: Double)
+data class Southwest(var lat: Double, var lng: Double)

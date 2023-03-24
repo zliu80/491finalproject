@@ -5,7 +5,7 @@ data class CityList(
     var perPage: Int,
     var totalPages: Int,
     var totalItems: Int,
-    var items:MutableList<City>
+    var items: MutableList<City>
 )
 
 /**
@@ -22,7 +22,7 @@ data class CityList(
 "description": "test",
 "city_image": "filename.jpg"
  */
-data class City (
+data class City(
 
     var id: String,
     var collectionId: String,

@@ -6,8 +6,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -18,138 +18,134 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"/>
+                android:layout_height="150dp" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_horizontal_margin">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="10dp"
-            app:strokeColor="@color/gray"
-            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/activity_horizontal_margin">
 
-
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text_city_name"
-                        style="@style/TitleText"
-                        android:padding="@dimen/activity_horizontal_small_margin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="name" />
-
-                    <com.google.android.material.divider.MaterialDivider
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"/>
-                    <TextView
-                        android:id="@+id/text_city_detail"
-                        style="@style/NormalText"
-                        android:padding="@dimen/activity_horizontal_small_margin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="name" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:cardElevation="10dp"
-                app:strokeColor="@color/gray"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/activity_horizontal_small_margin">
-
-                    <ImageView
-                        android:id="@+id/image_view_weather"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
-                        android:layout_gravity="center_vertical" />
+                    app:cardElevation="10dp"
+                    app:strokeColor="@color/gray"
+                    app:strokeWidth="1dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/text_temp"
-                            style="@style/NormalText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="25.5c" />
 
-                        <TextView
-                            android:id="@+id/text_humidity"
-                            style="@style/NormalText"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/activity_horizontal_small_margin"
-                            android:text="25.5c" />
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/text_city_name"
+                                style="@style/TitleText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/activity_horizontal_small_margin"
+                                android:text="name" />
+
+                            <com.google.android.material.divider.MaterialDivider
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp" />
+
+                            <TextView
+                                android:id="@+id/text_city_detail"
+                                style="@style/NormalText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/activity_horizontal_small_margin"
+                                android:text="name" />
+                        </LinearLayout>
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/activity_horizontal_small_margin">
+
+                            <ImageView
+                                android:id="@+id/image_view_weather"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/text_temp"
+                                    style="@style/NormalText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="25.5c" />
+
+                                <TextView
+                                    android:id="@+id/text_humidity"
+                                    style="@style/NormalText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="@dimen/activity_horizontal_small_margin"
+                                    android:text="25.5c" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/text_condition"
+                                style="@style/NormalText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="clear sky" />
+                        </LinearLayout>
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/text_condition"
-                        style="@style/NormalText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="clear sky" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
 
+                <TextView
+                    style="@style/SubTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_horizontal_small_margin"
+                    android:text="@string/text_most_popular_attractions" />
 
-        </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/text_most_popular_attractions"
-            style="@style/NormalText"
-            />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        </RelativeLayout>
-
-    </LinearLayout>
+            </LinearLayout>
 
 
         </LinearLayout>
