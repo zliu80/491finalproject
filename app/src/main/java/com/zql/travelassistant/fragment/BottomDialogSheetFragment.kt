@@ -46,7 +46,7 @@ import java.util.Collections
 import java.util.Date
 import kotlin.time.Duration.Companion.days
 
-open class BottomDialogSheetFragment(item:Results): SuperBottomSheetFragment(), View.OnClickListener {
+open class BottomDialogSheetFragment(item:Results): SuperBottomSheetFragment(), OnClickListener {
 
     lateinit var binding:FragmentBottomSheetPlaceDetailBinding
 
@@ -60,31 +60,36 @@ open class BottomDialogSheetFragment(item:Results): SuperBottomSheetFragment(), 
 
     @SuppressLint("SetTextI18n")
     private fun updateAttractionDetail() {
-        binding.textPlaceName.setText(placeDetail.name)
-        binding.textAddress.setText(placeDetail.formatted_address)
-        binding.textPhoneNumber.setText(placeDetail.formatted_phone_number)
+        binding.textPlaceName.text = placeDetail.name
+        binding.textAddress.text = placeDetail.formatted_address
+        binding.textPhoneNumber.text = placeDetail.formatted_phone_number
 
         binding.ratingBar.rating = placeDetail.rating
 
         binding.textWebsite.setOnClickListener(this)
 
-        binding.textWebsite.setText(placeDetail.website)
-        binding.textRating.setText(placeDetail.rating.toString())
-        binding.textRatingTotal.setText("("+placeDetail.user_ratings_total +")")
+        binding.textWebsite.text = placeDetail.website
+        binding.textRating.text = placeDetail.rating.toString()
+        binding.textRatingTotal.text = "("+placeDetail.user_ratings_total +")"
 
-        var photos = mutableListOf<String>()
-        for (photo in placeDetail.photos){
-            var url = "https://maps.googleapis.com/maps/api/place/photo" +
-                    "?maxwidth=400" +
-                    "&photo_reference=" + photo.photo_reference + " "  +
-                    "&key=" + TSApplication.GOOGLE_MAPS_API_KEY
-            photos.add(url)
+        if(placeDetail!=null && placeDetail.photos!=null){
+            var photos = mutableListOf<String>()
+            for (photo in placeDetail.photos){
+                var url = "https://maps.googleapis.com/maps/api/place/photo" +
+                        "?maxwidth=400" +
+                        "&photo_reference=" + photo.photo_reference + " "  +
+                        "&key=" + TSApplication.GOOGLE_MAPS_API_KEY
+                photos.add(url)
+
+            }
+            val adapter = PlaceDetailBannerImageAdapter(photos)
+            binding.banner.addBannerLifecycleObserver(this).setAdapter(adapter).indicator =
+                CircleIndicator(requireContext())
+            adapter.setOnItemClickListener(bannerItemClickListener)
         }
 
-        val adapter = PlaceDetailBannerImageAdapter(photos)
-        binding.banner.addBannerLifecycleObserver(this).setAdapter(adapter)
-            .setIndicator(CircleIndicator(requireContext()))
-        adapter.setOnItemClickListener(bannerItemClickListener)
+
+
 
        showCurrentOpenningHours()
 
@@ -103,7 +108,12 @@ open class BottomDialogSheetFragment(item:Results): SuperBottomSheetFragment(), 
             var calendar = Calendar.getInstance()
             var day = calendar.get(Calendar.DAY_OF_WEEK)
             var list = placeDetail.current_opening_hours.weekday_text
-            Collections.swap(list, 0, day-1)
+            if(day == 1){
+                Collections.swap(list, 0, list.size - 1)
+            } else {
+                Collections.swap(list, 0, day - 2)
+            }
+
             var msg = list.joinToString("\n")
 
             binding.expandTextView.text = msg
@@ -141,7 +151,7 @@ open class BottomDialogSheetFragment(item:Results): SuperBottomSheetFragment(), 
                     if (response.code() == 200) {
                         placeDetail = response.body()!!.result
                         updateAttractionDetail()
-                        Log.d("Got the place detail", response.body().toString());
+                        Log.d("Got the place detail", response.body().toString())
                     } else {
                         mDialog?.cancel()
                         // Handle 400, 403, 404 fail

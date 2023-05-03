@@ -40,7 +40,7 @@ class HomeRecyclearViewAdapter(val context: Context?, var data:MutableList<City>
         override fun onBindViewHolder(vh: ViewHolder, position: Int) {
             Picasso.get().load(TSApplication.getCityAbsoluteImageUrl(data.get(position))).into(vh.cityImage)
 
-            vh.cityTitle.setText(data.get(position).name)
+            vh.cityTitle.text = data.get(position).name
 
             vh.itemView.setOnClickListener {
                 if(itemClickListener!=null){

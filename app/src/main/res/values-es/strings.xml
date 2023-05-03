@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">TravelAssistant</string>
+
+    <string name="theme">Tema</string>
+    <string name="language">Idioma</string>
+
+    <string name="text_city_detail_activity_title">Lista de Ciudades</string>
+    <string name="text_attraction_detail_activity_title">Lista de Atracciones</string>
+
+    <string name="login_text">Iniciar Sesión</string>
+    <string name="hint_username">Por favor, introduce tu nombre de usuario</string>
+    <string name="hint_password">Por favor, introduce tu contraseña</string>
+    <string name="hint_no_account">¿No tienes una cuenta? ¡Regístrate ahora!</string>
+    <string name="title_activity_sign_up">Registrarse</string>
+    <string name="title_activity_sign_in">Iniciar Sesión</string>
+    <string name="title_activity_profile">Perfil</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Primer Fragmento</string>
+    <string name="second_fragment_label">Segundo Fragmento</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Anterior</string>
+
+    <string name="hello_first_fragment">Hola primer fragmento</string>
+    <string name="hello_second_fragment">Hola segundo fragmento. Argumento: %1$s</string>
+    <string name="prompt_email">Correo electrónico</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar sesión o registrarse</string>
+    <string name="action_sign_in_short">Iniciar sesión</string>
+    <string name="welcome">¡Bienvenido!</string>
+    <string name="invalid_username">Nombre de usuario no válido</string>
+    <string name="invalid_password">La contraseña debe tener más de 5 caracteres</string>
+    <string name="login_failed">Error al iniciar sesión</string>
+    <string name="signup_text">Registrarse</string>
+    <string name="hint_signup_username">al menos 4 letras</string>
+    <string name="hint_signup_password">8 - 72 letras</string>
+    <string name="hint_signup_email">dirección de correo electrónico válida</string>
+    <string name="remember_me_text">Recordarme</string>
+    <string name="home">Inicio</string>
+    <string name="plans">Planes</string>
+    <string name="setting">Configuración</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Mensajes</string>
+    <string name="sync_header">Sincronización</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Tu firma</string>
+    <string name="reply_title">Acción de respuesta predeterminada</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sincronizar correo electrónico periódicamente</string>
+    <string name="attachment_title">Descargar adjuntos entrantes</string>
+    <string name="attachment_summary_on">Descargar automáticamente los adjuntos de los correos electrónicos entrantes
+</string>
+    <string name="attachment_summary_off">Solo descargar adjuntos cuando se soliciten manualmente</string>
+    <string name="nickname">Apodo</string>
+    <string name="text_age">Edad</string>
+    <string name="text_phone_number">Número de contacto</string>
+    <string name="text_update_profile">Actualizar Perfil</string>
+    <string name="text_most_popular_cities">Ciudades más populares</string>
+    <string name="text_rememberme">Recordarme</string>
+    <string name="text_most_popular_attractions">Atracciones más populares</string>
+    <string name="text_address">Dirección: </string>
+    <string name="text_rating">Calificación: </string>
+    <string name="text_openning_hours">Horario de apertura</string>
+    <string name="text_contact_number">"Número de contacto: "</string>
+    <string name="text_reviews">Top 5 opiniones de otros viajeros</string>
+    <string name="text_detail">Detalles</string>
+    <string name="text_locate">Localizar</string>
+    <string name="text_loading">Cargando...</string>
+    <string name="text_order">Ordenar</string>
+    <string name="text_none">Ninguno</string>
+    <string name="text_hangout">Hangout</string>
+    <string name="text_hotel">Hotel</string>
+    <string name="text_shopping">Compras</string>
+    <string name="text_restaurant">Restaurante</string>
+    <string name="text_add_to_plans">Agregar a planes</string>
+    <string name="text_destination_city">Ciudad de destino: </string>
+    <string name="text_destination">Destino: </string>
+    <string name="hint_plans_description">Escribe tus planes</string>
+    <string name="text_cancel">Cancelar</string>
+    <string name="text_confirm">Confirmar</string>
+    <string name="text_start_date">Fecha de inicio: </string>
+    <string name="text_end_date">Fecha de finalización: </string>
+    <string name="text_description">"Descripción: "</string>
+    <string name="text_delete">Eliminar</string>
+
+    <string name="setting_theme">Seleccionar tema</string>
+    <string name="setting_language">Seleccionar idioma</string>
+</resources>

@@ -41,7 +41,7 @@ class AttractionListRecyclearViewAdapter(val context: Context?, var data:Mutable
         override fun onBindViewHolder(vh: ViewHolder, position: Int) {
             Picasso.get().load(TSApplication.getAttractionAbsoluteImageUrl(data.get(position))).into(vh.image)
 
-            vh.name.setText(data.get(position).name)
+            vh.name.text = data.get(position).name
 
             vh.itemView.setOnClickListener {
                 if(itemClickListener!=null){

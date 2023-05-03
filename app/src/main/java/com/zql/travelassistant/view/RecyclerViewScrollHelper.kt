@@ -10,7 +10,7 @@ object RecyclerViewScrollHelper {
         val manager1 = recyclerView.layoutManager
         if (manager1 is LinearLayoutManager) {
             val mScroller = TopSmoothScroller(recyclerView.context)
-            mScroller.setTargetPosition(position)
+            mScroller.targetPosition = position
             manager1.startSmoothScroll(mScroller)
         }
     }

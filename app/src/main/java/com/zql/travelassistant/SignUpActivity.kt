@@ -42,8 +42,13 @@ class SignUpActivity : BaseActivityWithNoTitle() {
     }
 
     private fun validate(): Boolean {
-        if (binding.textPassword.editText?.text != binding.textPasswordConfirm.editText?.text) {
+        var pwd = binding.textPassword.editText?.text.toString()
+        var pwdConfirm = binding.textPasswordConfirm.editText?.text.toString()
+        if (pwd != pwdConfirm) {
             Toast.makeText(mContext, "The passwords are not the same", Toast.LENGTH_SHORT).show()
+            return false
+        } else if(pwd.length <8 || pwd.length >72 || pwdConfirm.length<8 || pwdConfirm.length >72){
+            Toast.makeText(mContext, "The length of password is limited between 8 and 72", Toast.LENGTH_SHORT).show()
             return false
         }
         return true

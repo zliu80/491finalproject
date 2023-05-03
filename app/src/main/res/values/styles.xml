@@ -8,26 +8,40 @@
     </style>
 
     <style name="TitleText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/activity_title_text_size</item>
 
     </style>
 
     <style name="SubTitleText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/activity_subtitle_text_size</item>
 
     </style>
 
     <style name="NormalText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">@dimen/activity_text_size</item>
 
     </style>
 
     <style name="GrayText" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@android:color/darker_gray</item>
         <item name="android:textSize">@dimen/activity_text_size</item>
 
     </style>
+
+
+    <style name="my_custom_primary_color">
+        <item name="android:colorPrimary">@color/md_red_200</item>
+        <item name="colorPrimary">@color/md_red_200</item>
+    </style>
+    <style name="my_custom_primary_dark_color">
+        <item name="android:colorPrimaryDark">@color/md_red_400</item>
+        <item name="colorPrimaryDark">@color/md_red_400</item>
+    </style>
+    <style name="my_custom_accent_color">
+        <item name="android:colorAccent">@color/md_yellow_700</item>
+        <item name="colorAccent">@color/md_yellow_700</item>
+    </style>
+
+
+
+
 </resources>

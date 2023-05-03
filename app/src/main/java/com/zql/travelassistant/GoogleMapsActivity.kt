@@ -57,11 +57,6 @@ class GoogleMapsActivity : BaseActivityWithTitle(), OnMapReadyCallback,
     // Google Map displayed zoom
     private var MAP_ZOOM = 13f
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun init() {
         binding = ActivityGoogleMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)

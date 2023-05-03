@@ -9,7 +9,4 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-interface RetrofitCallback<T>:Callback<T> {
-
-
-}
+interface RetrofitCallback<T>:Callback<T>

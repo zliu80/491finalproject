@@ -29,10 +29,6 @@ class ProfileActivity : BaseActivityWithTitle() {
     private lateinit var binding: ActivityProfileBinding
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     /**
      * Init all views
      */
@@ -56,7 +52,7 @@ class ProfileActivity : BaseActivityWithTitle() {
         // Update profile button click event
         binding.btnUpdateProfile.setOnClickListener {
             updateProcfile(
-                TSApplication.userRecord.id,
+                TSApplication.userRecord!!.id,
                 UpdateUserData(
                     binding.textEmail.text.toString(),
                     binding.textNickname.text.toString(),
@@ -99,7 +95,7 @@ class ProfileActivity : BaseActivityWithTitle() {
             println(uri)
 
             var data: UpdateUserAvatar = UpdateUserAvatar(File(uri.path))
-            updateProcfile(TSApplication.userRecord.id, data)
+            updateProcfile(TSApplication.userRecord!!.id, data)
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {
@@ -118,7 +114,7 @@ class ProfileActivity : BaseActivityWithTitle() {
                 if (response.code() == 200) {
                     TSApplication.userRecord = response.body()!!
 //                    binding.avatarView.loadImage(data=TSApplication.getAvatarHttpAddress())
-                    Log.d("Update profile success", response.body().toString());
+                    Log.d("Update profile success", response.body().toString())
                     MaterialDialog.show(
                         this@ProfileActivity,
                         "Your profile has been updated.",
@@ -160,7 +156,7 @@ class ProfileActivity : BaseActivityWithTitle() {
                 if (response.code() == 200) {
                     TSApplication.userRecord = response.body()!!
                     binding.avatarView.loadImage(data = TSApplication.getAvatarHttpAddress())
-                    Log.d("Update avatar success", response.body().toString());
+                    Log.d("Update avatar success", response.body().toString())
                 } else {
                     // Handle 400, 403, 404 fail
                     // Sign up failed

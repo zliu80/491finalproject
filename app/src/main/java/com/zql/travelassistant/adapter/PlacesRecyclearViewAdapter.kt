@@ -56,7 +56,7 @@ class PlacesRecyclearViewAdapter(val supportFragmentManager:FragmentManager, val
             var item = data.get(position)
             vh.icon.setBackgroundColor(Color.parseColor(item.icon_background_color))
             Picasso.get().load(item.icon).into(vh.icon)
-            vh.name.setText(item.name)
+            vh.name.text = item.name
             vh.ratingBar.rating = item.rating
 //            vh.address.setText(item.formatted_address)
             vh.itemView.setOnClickListener {
@@ -71,15 +71,16 @@ class PlacesRecyclearViewAdapter(val supportFragmentManager:FragmentManager, val
                 mapIntent.setPackage("com.google.android.apps.maps")
                 context?.startActivity(mapIntent)
             }
+
             vh.detailButton.setOnClickListener {
                 BottomDialogSheetFragment(item).show(supportFragmentManager,"BottomDialogSheetFragment")
             }
             if(item.opening_hours!=null) {
                 if (item.opening_hours.open_now) {
-                    vh.openningStatus.setText("Open")
+                    vh.openningStatus.text = "Open"
                     vh.openningStatus.setTextColor(Color.GREEN)
                 } else {
-                    vh.openningStatus.setText("Closed")
+                    vh.openningStatus.text = "Closed"
                     vh.openningStatus.setTextColor(Color.RED)
                 }
             }

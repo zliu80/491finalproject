@@ -32,14 +32,6 @@ class CityDetailActivity : BaseActivityWithTitle() {
 
     private lateinit var weather: Weather
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-
-
-    }
-
     /**
      * Init views
      */
@@ -51,8 +43,8 @@ class CityDetailActivity : BaseActivityWithTitle() {
         supportActionBar?.setTitle(R.string.text_city_detail_activity_title)
 
         city = Gson().fromJson(intent.getStringExtra("city_detail"), City::class.java)
-        binding.textCityName.setText(city.name)
-        binding.textCityDetail.setText(city.description)
+        binding.textCityName.text = city.name
+        binding.textCityDetail.text = city.description
 
         loadWeather()
 
@@ -67,9 +59,9 @@ class CityDetailActivity : BaseActivityWithTitle() {
      */
     fun updateWeatherView(weather: Weather) {
         Picasso.get().load("https:" + weather.current.condition.icon).into(binding.imageViewWeather)
-        binding.textTemp.setText(weather.current.temp_f.toString() + "°F")
-        binding.textHumidity.setText("Humidity: " + weather.current.humidity.toString())
-        binding.textCondition.setText(weather.current.condition.text)
+        binding.textTemp.text = weather.current.temp_f.toString() + "°F"
+        binding.textHumidity.text = "Humidity: " + weather.current.humidity.toString()
+        binding.textCondition.text = weather.current.condition.text
     }
 
     /**
@@ -82,7 +74,7 @@ class CityDetailActivity : BaseActivityWithTitle() {
                     if (response.code() == 200) {
                         weather = response.body()!!
                         updateWeatherView(weather)
-                        Log.d("Got the weather", response.body().toString());
+                        Log.d("Got the weather", response.body().toString())
                     } else {
                         // Handle 400, 403, 404 fail
                         // Sign up failed
@@ -118,7 +110,7 @@ class CityDetailActivity : BaseActivityWithTitle() {
                     var list = response.body()!!.items
                     updateAttractionList(list)
                     updateBanner(list)
-                    Log.d("Got the attraction list", response.body().toString());
+                    Log.d("Got the attraction list", response.body().toString())
                 } else {
                     // Handle 400, 403, 404 fail
                     // Sign up failed
@@ -140,8 +132,8 @@ class CityDetailActivity : BaseActivityWithTitle() {
      */
     fun updateBanner(list: MutableList<Attraction>) {
         val adapter = CityDetailBannerImageAdapter(list)
-        binding.banner.addBannerLifecycleObserver(this).setAdapter(adapter)
-            .setIndicator(CircleIndicator(this))
+        binding.banner.addBannerLifecycleObserver(this).setAdapter(adapter).indicator =
+            CircleIndicator(this)
         adapter.setOnItemClickListener(bannerItemClickListener)
     }
 
@@ -164,6 +156,7 @@ class CityDetailActivity : BaseActivityWithTitle() {
         val intent = Intent(mContext, AttractionDetailActivity::class.java)
         intent.putExtra("attraction", Gson().toJson(attraction))
         intent.putExtra("city_name", city.name)
+        intent.putExtra("city_id", city.id)
         startActivity(intent)
     }
 

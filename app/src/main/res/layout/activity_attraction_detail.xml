@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -42,9 +42,7 @@
                     android:layout_height="wrap_content"
                     android:text="name" />
 
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"/>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -163,22 +161,13 @@
             </LinearLayout>
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
+                android:background="@color/gray"
                 android:layout_height="1dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="vertical"
                 android:padding="@dimen/activity_horizontal_margin"
                 android:layout_height="wrap_content">
-
-
-            <Button
-                android:id="@+id/btn_fun_facts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="left|center"
-                android:text="Fun facts"
-
-                />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,7 +179,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Hangout" />
+                    android:text="@string/text_hangout" />
 
                 <Button
                     android:id="@+id/btn_hotel"
@@ -198,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_weight="1"
-                    android:text="Hotel" />
+                    android:text="@string/text_hotel" />
 
 
             </LinearLayout>
@@ -213,7 +202,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Shopping" />
+                    android:text="@string/text_shopping" />
 
                 <Button
                     android:id="@+id/btn_restaurant"
@@ -221,10 +210,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
                     android:layout_weight="1"
-                    android:text="Restaurant" />
+                    android:text="@string/text_restaurant" />
 
 
             </LinearLayout>
+
         </LinearLayout>
 
             <LinearLayout
@@ -245,6 +235,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="@dimen/activity_horizontal_small_margin"
+                    android:background="@color/gray"
                     />
 
                 <RelativeLayout
@@ -259,6 +250,18 @@
             </LinearLayout>
         </LinearLayout>
 
+
     </ScrollView>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddToPlans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/baseline_add_24"
+        app:fabSize="auto"
+        android:layout_margin="@dimen/activity_horizontal_small_margin"
+        android:contentDescription="@string/text_add_to_plans"
+        />
+</RelativeLayout>

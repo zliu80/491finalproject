@@ -1,13 +1,16 @@
 package com.zql.travelassistant
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import com.zql.travelassistant.util.LocalManageUtils
 import dev.shreyaspatil.MaterialDialog.AbstractDialog
 import dev.shreyaspatil.MaterialDialog.MaterialDialog
+import io.multimoon.colorful.CAppCompatActivity
 
-abstract class BaseActivity(isShowTitle:Boolean?): AppCompatActivity() {
+abstract class BaseActivity(isShowTitle:Boolean?): CAppCompatActivity() {
 
     val TAG = BaseActivity::class.java.name
 
@@ -51,6 +54,7 @@ abstract class BaseActivity(isShowTitle:Boolean?): AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(isShowTitle)
         }
 
+
     }
 
     /**
@@ -63,12 +67,13 @@ abstract class BaseActivity(isShowTitle:Boolean?): AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(LocalManageUtils.setLocale(newBase!!))
+    }
 }
 
-abstract class BaseActivityWithTitle(): BaseActivity(true) {
 
-}
+abstract class BaseActivityWithTitle : BaseActivity(true)
 
-abstract class BaseActivityWithNoTitle(): BaseActivity(false) {
-
-}
+abstract class BaseActivityWithNoTitle : BaseActivity(false)

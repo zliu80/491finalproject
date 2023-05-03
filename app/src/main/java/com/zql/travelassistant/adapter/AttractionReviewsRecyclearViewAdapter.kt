@@ -45,9 +45,9 @@ class AttractionReviewsRecyclearViewAdapter(val context: Context?, var data:List
 
         override fun onBindViewHolder(vh: ViewHolder, position: Int) {
             vh.avatarView.loadImage(data.get(position).profile_photo_url)
-            vh.name.setText(data.get(position).author_name)
-            vh.text.setText(data.get(position).text)
-            vh.relative_time_description.setText(data.get(position).relative_time_description)
+            vh.name.text = data.get(position).author_name
+            vh.text.text = data.get(position).text
+            vh.relative_time_description.text = data.get(position).relative_time_description
             vh.ratingBar.rating = data.get(position).rating.toFloat()
 
             vh.itemView.setOnClickListener {

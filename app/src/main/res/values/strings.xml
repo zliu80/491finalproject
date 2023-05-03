@@ -1,36 +1,49 @@
 <resources>
     <string name="app_name">TravelAssistant</string>
 
-    <string name="text_city_detail_activity_title">City List</string>
-    <string name="text_attraction_detail_activity_title">Attraction List</string>
 
-    <string name="login_text">Log in</string>
-    <string name="hint_username">Please enter your username</string>
-    <string name="hint_password">Please enter your password</string>
-    <string name="hint_no_account">Don\'t have an account? Sign up now!</string>
-    <string name="title_activity_sign_up">Sign Up</string>
-    <string name="title_activity_sign_in">Sign In</string>
-    <string name="title_activity_profile">Profile</string>
+    <string name="english" translatable="false">English</string>
+
+    <string name="japanese" translatable="false">やまと</string>
+
+    <string name="chinese" translatable="false">中文</string>
+    <string name="spanish" translatable="false">español</string>
+
+
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+
+
+    <string name="text_city_detail_activity_title" translatable="false">City List</string>
+    <string name="text_attraction_detail_activity_title" translatable="false">Attraction List</string>
+
+    <string name="login_text" translatable="false">Sign in</string>
+    <string name="hint_username" translatable="false">Please enter your username</string>
+    <string name="hint_password" translatable="false">Please enter your password</string>
+    <string name="hint_no_account" translatable="false">Don\'t have an account? Sign up now!</string>
+    <string name="title_activity_sign_up" translatable="false">Sign Up</string>
+    <string name="title_activity_sign_in" translatable="false">Sign In</string>
+    <string name="title_activity_profile" translatable="false">Profile</string>
 
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="signup_text">Sign Up</string>
-    <string name="hint_signup_username">at least 4 letters</string>
-    <string name="hint_signup_password">at least 6 letters</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="prompt_email" translatable="false">Email</string>
+    <string name="prompt_password" translatable="false">Password</string>
+    <string name="action_sign_in" translatable="false">Sign in or register</string>
+    <string name="action_sign_in_short" translatable="false">Sign in</string>
+    <string name="welcome" translatable="false">"Welcome !"</string>
+    <string name="invalid_username" translatable="false">Not a valid username</string>
+    <string name="invalid_password" translatable="false">Password must be >5 characters</string>
+    <string name="login_failed" translatable="false">"Login failed"</string>
+    <string name="signup_text" translatable="false">Sign Up</string>
+    <string name="hint_signup_username" translatable="false">at least 4 letters</string>
+    <string name="hint_signup_password">8 - 72 letters</string>
     <string name="hint_signup_email">valid email address</string>
     <string name="remember_me_text">Remember me</string>
     <string name="home">Home</string>
@@ -40,16 +53,7 @@
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
 
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="nickname">Nickname</string>
     <string name="text_age">Age</string>
     <string name="text_phone_number">Contact Number</string>
@@ -67,5 +71,22 @@
     <string name="text_loading">Loading...</string>
     <string name="text_order">Order</string>
     <string name="text_none">None</string>
+    <string name="text_hangout">Hangout</string>
+    <string name="text_hotel">Hotel</string>
+    <string name="text_shopping">Shopping</string>
+    <string name="text_restaurant">Restaurant</string>
+    <string name="text_add_to_plans">Add to plans</string>
+    <string name="text_destination_city">Destination City: </string>
+    <string name="text_destination">Destination: </string>
+    <string name="hint_plans_description">Write down your plans</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_confirm">Confirm</string>
+    <string name="text_start_date">Starte Date: </string>
+    <string name="text_end_date">End Date: </string>
+    <string name="text_description">"Description: "</string>
+    <string name="text_delete">Delete</string>
+
+    <string name="setting_theme">Select Theme</string>
+    <string name="setting_language">Select Language</string>
 
 </resources>

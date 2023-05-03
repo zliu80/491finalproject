@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TravelAssistant</string>
+
+    <string name="theme">主题</string>
+    <string name="language">语言偏好</string>
+
+
+    <string name="text_city_detail_activity_title" translatable="false">城市列表</string>
+    <string name="text_attraction_detail_activity_title" translatable="false">景点列表</string>
+
+    <string name="login_text" translatable="false">登录</string>
+    <string name="hint_username" translatable="false">请输入您的用户名</string>
+    <string name="hint_password" translatable="false">请输入您的密码</string>
+    <string name="hint_no_account" translatable="false">还没有账号？现在注册！</string>
+    <string name="title_activity_sign_up" translatable="false">注册</string>
+    <string name="title_activity_sign_in" translatable="false">登录</string>
+    <string name="title_activity_profile" translatable="false">个人资料</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">第一个片段</string>
+    <string name="second_fragment_label" translatable="false">第二个片段</string>
+    <string name="next" translatable="false">下一步</string>
+    <string name="previous" translatable="false">上一步</string>
+
+    <string name="hello_first_fragment" translatable="false">你好，第一个片段</string>
+    <string name="hello_second_fragment" translatable="false">你好，第二个片段。参数：%1$s</string>
+    <string name="prompt_email" translatable="false">电子邮件</string>
+    <string name="prompt_password" translatable="false">密码</string>
+    <string name="action_sign_in" translatable="false">登录或注册</string>
+    <string name="action_sign_in_short" translatable="false">登录</string>
+    <string name="welcome" translatable="false">"欢迎！"</string>
+    <string name="invalid_username" translatable="false">不是有效的用户名</string>
+    <string name="invalid_password" translatable="false">密码必须大于5个字符</string>
+    <string name="login_failed" translatable="false">"登录失败"</string>
+    <string name="signup_text" translatable="false">注册</string>
+    <string name="hint_signup_username" translatable="false">至少4个字母</string>
+    <string name="hint_signup_password">8 - 72个字母</string>
+    <string name="hint_signup_email">有效的电子邮件地址</string>
+    <string name="remember_me_text">记住我</string>
+    <string name="home">首页</string>
+    <string name="plans">计划</string>
+    <string name="setting">设置</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">消息</string>
+    <string name="sync_header">同步</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">您的签名</string>
+    <string name="reply_title">默认回复操作</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">定期同步电子邮件</string>
+    <string name="attachment_title">下载收件箱附件</string>
+
+    <string name="nickname">昵称</string>
+    <string name="text_age">年龄</string>
+    <string name="text_phone_number">联系电话</string>
+    <string name="text_update_profile">更新个人资料</string>
+    <string name="text_most_popular_cities">最受欢迎的城市</string>
+    <string name="text_rememberme">记住我</string>
+    <string name="text_most_popular_attractions">最受欢迎的景点</string>
+    <string name="text_address">地址: </string>
+    <string name="text_rating">评分: </string>
+    <string name="text_openning_hours">营业时间</string>
+    <string name="text_contact_number">"联系电话: "</string>
+    <string name="text_reviews">其他旅客的前5条评论</string>
+    <string name="text_detail">详情</string>
+    <string name="text_locate">定位</string>
+    <string name="text_loading">加载中...</string>
+    <string name="text_order">排序</string>
+    <string name="text_none">无</string>
+    <string name="text_hangout">休闲</string>
+    <string name="text_hotel">酒店</string>
+    <string name="text_shopping">购物</string>
+    <string name="text_restaurant">餐厅</string>
+    <string name="text_add_to_plans">加入计划</string>
+    <string name="text_destination_city">目的地城市: </string>
+    <string name="text_destination">目的地: </string>
+    <string name="hint_plans_description">编写您的计划</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_confirm">确认</string>
+    <string name="text_start_date">开始日期: </string>
+    <string name="text_end_date">结束日期: </string>
+    <string name="text_description">"描述: "</string>
+    <string name="text_delete">删除</string>
+
+    <string name="setting_theme">选择主题</string>
+    <string name="setting_language">选择语言</string>
+
+
+</resources>

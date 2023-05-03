@@ -45,7 +45,7 @@
         <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:label="@string/title_activity_sign_in">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

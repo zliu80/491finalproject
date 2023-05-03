@@ -6,6 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
+    android:background="@color/white"
     tools:context=".SignInActivity">
 
 
@@ -41,6 +42,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,6 +58,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -87,7 +90,7 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             app:icon="@drawable/baseline_login_24"
-            style="@style/Widget.MaterialComponents.Button.Icon"
+            style="?attr/materialButtonStyle"
             android:text="@string/login_text" />
 
 

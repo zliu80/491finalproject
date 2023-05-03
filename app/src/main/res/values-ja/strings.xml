@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">TravelAssistant</string>
+
+    <string name="theme">テーマ</string>
+    <string name="language">言語</string>
+
+    <string name="text_city_detail_activity_title" translatable="false">都市一覧</string>
+    <string name="text_attraction_detail_activity_title" translatable="false">アトラクション一覧</string>
+
+    <string name="login_text" translatable="false">ログイン</string>
+    <string name="hint_username" translatable="false">ユーザー名を入力してください</string>
+    <string name="hint_password" translatable="false">パスワードを入力してください</string>
+    <string name="hint_no_account" translatable="false">アカウントを持っていませんか？今すぐサインアップ！</string>
+    <string name="title_activity_sign_up" translatable="false">サインアップ</string>
+    <string name="title_activity_sign_in" translatable="false">ログイン</string>
+    <string name="title_activity_profile" translatable="false">プロフィール</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">最初のフラグメント</string>
+    <string name="second_fragment_label" translatable="false">2番目のフラグメント</string>
+    <string name="next" translatable="false">次へ</string>
+    <string name="previous" translatable="false">前へ</string>
+
+    <string name="hello_first_fragment" translatable="false">最初のフラグメントこんにちは</string>
+    <string name="hello_second_fragment" translatable="false">2番目のフラグメントこんにちは。Arg: %1$s</string>
+    <string name="prompt_email" translatable="false">メールアドレス</string>
+    <string name="prompt_password" translatable="false">パスワード</string>
+    <string name="action_sign_in" translatable="false">ログインまたは登録</string>
+    <string name="action_sign_in_short" translatable="false">ログイン</string>
+    <string name="welcome" translatable="false">ようこそ！</string>
+    <string name="invalid_username" translatable="false">有効なユーザー名ではありません</string>
+    <string name="invalid_password" translatable="false">パスワードは5文字以上である必要があります</string>
+    <string name="login_failed" translatable="false">ログインに失敗しました</string>
+    <string name="signup_text" translatable="false">サインアップ</string>
+    <string name="hint_signup_username" translatable="false">少なくとも4文字</string>
+    <string name="hint_signup_password">8〜72文字</string>
+    <string name="hint_signup_email">有効なメールアドレス</string>
+    <string name="remember_me_text">ログイン情報を保存する</string>
+    <string name="home">ホーム</string>
+    <string name="plans">プラン</string>
+    <string name="setting">設定</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">メッセージ</string>
+    <string name="sync_header">同期</string>
+
+    <string name="nickname">ニックネーム</string>
+    <string name="text_age">年齢</string>
+    <string name="text_phone_number">電話番号</string>
+    <string name="text_update_profile">プロフィールを更新</string>
+    <string name="text_most_popular_cities">人気のある都市</string>
+    <string name="text_rememberme">ログイン情報を記憶する</string>
+    <string name="text_most_popular_attractions">人気のある観光スポット</string>
+    <string name="text_address">住所：</string>
+    <string name="text_rating">評価：</string>
+    <string name="text_openning_hours">営業時間</string>
+    <string name="text_contact_number">"電話番号: "</string>
+    <string name="text_reviews">他の旅行者のトップ5レビュー</string>
+    <string name="text_detail">詳細</string>
+    <string name="text_locate">位置を検索</string>
+    <string name="text_loading">読み込み中...</string>
+    <string name="text_order">注文</string>
+    <string name="text_none">なし</string>
+    <string name="text_hangout">遊び場所</string>
+    <string name="text_hotel">ホテル</string>
+    <string name="text_shopping">ショッピング</string>
+    <string name="text_restaurant">レストラン</string>
+    <string name="text_add_to_plans">プランに追加</string>
+    <string name="text_destination_city">目的地の都市: </string>
+    <string name="text_destination">目的地: </string>
+    <string name="hint_plans_description">計画を書き留める</string>
+    <string name="text_cancel">キャンセル</string>
+    <string name="text_confirm">確認</string>
+    <string name="text_start_date">開始日: </string>
+    <string name="text_end_date">終了日: </string>
+    <string name="text_description">"説明: "</string>
+    <string name="text_delete">削除</string>
+
+    <string name="setting_theme">テーマを選択</string>
+    <string name="setting_language">言語を選択</string>
+
+</resources>
