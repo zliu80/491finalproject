@@ -63,5 +63,10 @@
     // Theme selector
     implementation 'com.github.garretyoder:Colorful:2.3.4'
     
+  # APIs
+  
+    Google Maps: https://maps.googleapis.com/
+    
+    Weather API: https://weatherapi-com.p.rapidapi.com/
             
            
