@@ -38,6 +38,30 @@
     
     If running on a real device, change the server address.
     
+ # Frameworks
+ 
+     // Avatar ImageView
+    implementation "io.getstream:avatarview-coil:1.0.7"
+    // Image Loader
+    implementation 'com.squareup.picasso:picasso:2.8'
+    // Image Selector
+    implementation 'com.github.dhaval2404:imagepicker:2.1'
+    // Google map SDK
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    // Ads banner
+    implementation 'io.github.youth5201314:banner:2.2.2'
+    // Material Dialog Library
+    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.3'
+    // Lottie Animation Library
+    implementation 'com.airbnb.android:lottie:4.2.2'
+    // Swipe to delete menu Library
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+    // Bottom sheet
+    implementation 'com.github.andrefrsousa:SuperBottomSheet:2.0.0'
+    // Expandable Textview
+    implementation 'com.ms-square:expandableTextView:0.1.4'
+    // Theme selector
+    implementation 'com.github.garretyoder:Colorful:2.3.4'
     
             
            
