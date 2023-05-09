@@ -38,7 +38,7 @@ class ProfileActivity : BaseActivityWithTitle() {
         // Set back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         // Get user entity from Application
-        val user: User? = TSApplication.userRecord
+        val user: User? = TSApplication.getUser(this)
         // Load the user avatar
         binding.avatarView.loadImage(data = TSApplication.getAvatarHttpAddress())
         binding.textNickname.setText(user?.nickname)
@@ -52,7 +52,7 @@ class ProfileActivity : BaseActivityWithTitle() {
         // Update profile button click event
         binding.btnUpdateProfile.setOnClickListener {
             updateProcfile(
-                TSApplication.userRecord!!.id,
+                user!!.id,
                 UpdateUserData(
                     binding.textEmail.text.toString(),
                     binding.textNickname.text.toString(),
@@ -95,7 +95,7 @@ class ProfileActivity : BaseActivityWithTitle() {
             println(uri)
 
             var data: UpdateUserAvatar = UpdateUserAvatar(File(uri.path))
-            updateProcfile(TSApplication.userRecord!!.id, data)
+            updateProcfile(TSApplication.getUser(this)!!.id, data)
         } else if (resultCode == ImagePicker.RESULT_ERROR) {
             Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
         } else {

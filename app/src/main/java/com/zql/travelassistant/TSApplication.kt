@@ -1,13 +1,16 @@
 package com.zql.travelassistant
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.util.Log
 import com.zql.travelassistant.bean.Attraction
 import com.zql.travelassistant.bean.City
 import com.zql.travelassistant.bean.User
 import com.zql.travelassistant.util.LocalManageUtils
+import com.zql.travelassistant.util.MaterialDialog
 import io.multimoon.colorful.CustomThemeColor
 import io.multimoon.colorful.Defaults
 import io.multimoon.colorful.ThemeColor
@@ -41,6 +44,18 @@ class TSApplication :Application() {
 
         fun getAttractionAbsoluteImageUrl(attraction: Attraction):String{
             return "$CITY_FILE_PATH${attraction.collectionId}/${attraction.id}/${attraction.attraction_image}"
+        }
+
+        fun getUser(activity:Activity):User?{
+            try {
+                if(userRecord == null){
+                    throw NullPointerException("Null user")
+                }
+            } catch (e:java.lang.Exception){
+                MaterialDialog.show(activity, "A null user object","UnExpected error")
+
+            }
+            return userRecord
         }
     }
 

@@ -205,7 +205,7 @@ class AttractionDetailActivity : BaseActivityWithTitle(), View.OnClickListener {
         } else if (view == binding.btnRestaurant) {
             query = "restaurants"
         } else if (view == binding.btnAddToPlans){
-            val plans = Plans(0, cityId, cityName, TSApplication.userRecord!!.id)
+            val plans = Plans(0, cityId, cityName, TSApplication.getUser(this)!!.id)
             BottomDialogSheetAddPlansFragment(plans, attraction).show(supportFragmentManager, "")
             return
         }

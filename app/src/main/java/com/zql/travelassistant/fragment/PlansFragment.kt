@@ -72,7 +72,7 @@ class PlansFragment : Fragment(), OnPlansModifyListener {
     private fun loadAllPlansByUserId():MutableList<Plans>{
         var plans:MutableList<Plans> = mutableListOf()
         // find all the languages like "select * from languages" statement
-        var cursor = getDB()?.query("plans",null,"user_id=?", arrayOf(TSApplication.userRecord?.id),null,null,null)
+        var cursor = getDB()?.query("plans",null,"user_id=?", arrayOf(TSApplication.getUser(requireActivity())?.id),null,null,null)
         if(cursor!!.moveToFirst()){
             do{
                 var p = Plans(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3))
