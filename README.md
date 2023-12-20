@@ -16,7 +16,7 @@
   
 # Start the server
 
-      cd 491finalproject/server/
+      cd /server
       
       ./pocketbase serve
   
