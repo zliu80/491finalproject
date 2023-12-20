@@ -1,8 +1,8 @@
-# 491finalproject - Travel Assistant by Zhiqiang Liu
+# Travel Assistant by Zhiqiang Liu
 
 # A client to server project
   
-  client: Android and written in Kotlin
+  client: Android OS written in Kotlin
   
   server: Pocketbase
   
